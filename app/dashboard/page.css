@@ -1,0 +1,36 @@
+#attendanceTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#attendanceTable th {
+    border-bottom: 1px solid rgb(223, 223, 223);
+    border-right: 1px solid rgb(223, 223, 223);
+    padding-top: 20px;
+    width: 20%;
+    padding-bottom: 20px;
+    text-align: center;
+    background: #F7F7F7;
+    color: #404040;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#attendanceTable td {
+    padding: 10px 20px;
+    color: #404040;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#attendanceTable tr:nth-child(even) {
+    background-color: #E3E9FF;
+}
+
+#attendanceTable tr:hover:nth-child(even) {
+    background: #F7F7F7;
+}
+
+#attendanceTable tr:hover {
+    background: #F7F7F7;
+}

@@ -1,15 +1,11 @@
-import localFont from "next/font/local";
+import { Rubik } from "next/font/google";
 import "./globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Providers from "./components/Providers";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const mons = Rubik({
+  weight: "400",
+  subsets: ["latin"],
 });
 
 export const metadata = {
@@ -20,10 +16,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={mons.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
