@@ -3,6 +3,7 @@ import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Providers from "./components/Providers";
 import "react-datepicker/dist/react-datepicker.css";
+import { Toaster } from "sonner";
 
 const mons = Rubik({
   weight: "400",
@@ -18,6 +19,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={mons.className}>
+        <div>
+          <Toaster position="top-center" richColors duration={3000} />
+        </div>
         <Providers>{children}</Providers>
       </body>
     </html>

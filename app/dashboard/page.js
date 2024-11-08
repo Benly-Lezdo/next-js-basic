@@ -10,6 +10,7 @@ import "./page.css";
 import DatePicker from "react-datepicker";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import { FaWatchmanMonitoring } from "react-icons/fa";
+import { toast } from "sonner";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export default function Dashboard() {
 
   const [startDate, setStartDate] = useState(new Date());
   const handleSave = () => {
+    toast.success("hai 💀");
     console.log("startDate", startDate);
   };
 
