@@ -2,6 +2,7 @@ import { Rubik } from "next/font/google";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Providers from "./components/Providers";
+import "react-datepicker/dist/react-datepicker.css";
 
 const mons = Rubik({
   weight: "400",

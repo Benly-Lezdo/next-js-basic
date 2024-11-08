@@ -1,18 +1,20 @@
 "use client";
 
-import { Box, Skeleton } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Box, Skeleton } from "@mui/material";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { todoData } from "../store/todo/todoSlice";
 import "./page.css";
+import DatePicker from "react-datepicker";
 
 export default function Dashboard() {
-  const { dataVal, isLoading, error } = useSelector((state) => state.todo);
-
-  const currentData = useMemo(() => dataVal, [dataVal]);
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  const { dataVal, isLoading, error } = useSelector((state) => state.todo);
+  const currentData = useMemo(() => dataVal, [dataVal]);
 
   const fetchData = async () => {
     try {
@@ -21,15 +23,20 @@ export default function Dashboard() {
       console.log("e", e);
     }
   };
-
   useEffect(() => {
     fetchData();
   }, []);
 
-  const router = useRouter();
+  const [startDate, setStartDate] = useState(new Date());
+  const handleSave = () => {
+    console.log("startDate", startDate);
+  };
 
   const handleClick = () => {
     router.push("/dashboard/settings");
+  };
+  const handleBack = () => {
+    router.push("/");
   };
 
   return (
@@ -39,9 +46,20 @@ export default function Dashboard() {
         <h1>Whereas disregard and contempt for human rights have resulted</h1>
         <p>Hellooooo</p>
         <h4>haii</h4>
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-between">
+          <Button onClick={handleBack}>Home</Button>
           <Button onClick={handleClick} variant="success">
             settings
+          </Button>
+        </div>
+        <div className="text-center">
+          <DatePicker
+            dateFormat="dd-MM-YYY"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+          <Button className="mx-2" onClick={handleSave}>
+            save
           </Button>
         </div>
         <div className="container mt-2">
