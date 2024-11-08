@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { todoData } from "../store/todo/todoSlice";
 import "./page.css";
 import DatePicker from "react-datepicker";
+import AcUnitIcon from "@mui/icons-material/AcUnit";
+import { FaWatchmanMonitoring } from "react-icons/fa";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
@@ -52,7 +54,11 @@ export default function Dashboard() {
             settings
           </Button>
         </div>
-        <div className="text-center">
+        <div className="p-3">
+          <AcUnitIcon style={{ color: "orange" }} />
+          <FaWatchmanMonitoring style={{ color: "pink", fontSize: "25px" }} />
+        </div>
+        <div className="d-flex justify-content-center align-items-center">
           <DatePicker
             dateFormat="dd-MM-YYY"
             selected={startDate}
