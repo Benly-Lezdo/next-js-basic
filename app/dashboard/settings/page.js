@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
+import { toast } from "sonner";
 
 export default function Settings() {
   const router = useRouter();
@@ -10,8 +11,14 @@ export default function Settings() {
   const [val, setVal] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    setVal("");
-    console.log("val", val);
+    if (val.length < 3) {
+      toast.error("Please Fill");
+    }
+    if (val.length >= 3) {
+      toast.success("🦇");
+      setVal("");
+      console.log("val", val);
+    }
   };
   const handleClick = () => {
     router.push("/dashboard");
